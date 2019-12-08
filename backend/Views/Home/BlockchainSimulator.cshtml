@@ -1,0 +1,65 @@
+﻿@model BlockchainSimulator.Models.Block
+    <div class="row">
+        <br /><br />
+        <h1> Blockchain </h1>
+        @*<form>
+            <div class="form-group">
+                <label for="block#">Block @Model.Index</label>
+                <input type="text" class="form-control" id="block#" placeholder=@Model.Hash>
+            </div>
+
+            <div class="form-group">
+                <label for="PreviousHash">Parent</label>
+                <input type="text" class="form-control" id="PreviousHash" placeholder=@Model.PreviousHash>
+            </div>
+            <div class="form-group">
+                <label for="Transaction#">Transaction</label>
+                <table id="myTable" class=" table order-list">
+                    <thead>
+                        <tr>
+                            <td for="SenderName"> <h4> From</h4></td>
+                            <td for="ReceiverName"> <h4>To</h4></td>
+                            <td for="Amount"> <h4>Amount</h4></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-sm-4">
+                            </td>
+                            <td class="col-sm-4">
+                            </td>
+                            <td class="col-sm-4">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                @Html.DisplayNameFor(model => model.Transactions)
+            </div>
+            <div class="form-group">
+                <label for="Nonce#">Nonce</label>
+                <input type="text" class="form-control" id="Nonce#" placeholder=@Model.Nonce>
+            </div>
+            <div class="form-group">
+                <label for="Hash#">Hash</label>
+                <input type="text" class="form-control" id="Hash#" placeholder=@Model.Hash>
+            </div>
+
+            @Html.ActionLink("CreateNewBlock", "BlockChainSimulator", "Home")
+            @Html.ActionLink("Mine", "BlockChainSimulator", "Home")
+
+        </form>*@
+
+    <div class="col-lg-12 col-md-12 col-xs-12" id="blockview">
+       
+        @*@{ Html.RenderAction("BlockView");}*@
+        @Html.Partial("BlockView", Model)
+    </div>
+    </div>
+
+    <script type="text/javascript">
+  $("#mine").click(function(e){
+   // $('#block').submit();
+    $('#blockview').load('/HomeController/BlockView');
+  });
+    </script>
+
